@@ -1,7 +1,7 @@
 export default class AutoLink {
 
   private items: NodeList
-  private html: string | null = null
+  private html: string = ''
   private match: RegExpMatchArray | null = null
   private index: number | undefined
   private piece: string | HTMLAnchorElement = ''
@@ -22,9 +22,9 @@ export default class AutoLink {
   }
 
   private autoLink(item: Element) {
-    this.html = item.textContent
+    this.html = item.innerHTML
     if (!this.html) return
-    item.textContent = ''
+    item.innerHTML = ''
 
     while (this.html) {
       this.match = this.html.match(/(https?:\/\/(([\w\-_\.]+)\.([a-z]+))([\/\?#][^\s,,(){}<>"”’]*)?)/i)
@@ -34,7 +34,7 @@ export default class AutoLink {
           this.index = this.match[1].length
           this.piece = this.getLinkedText(this.match[1])
       }
-      item.textContent += this.piece
+      item.innerHTML += this.piece
       this.html = this.html.slice(this.index)
     }
   }
