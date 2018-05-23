@@ -37,7 +37,5 @@ export default class AutoLink {
       item.textContent += this.piece
       this.html = this.html.slice(this.index)
     }
-
-    this.html = ''
   }
 }
