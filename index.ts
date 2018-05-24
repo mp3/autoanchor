@@ -1,4 +1,4 @@
-export default class AutoLink {
+export default class AutoAnchor {
 
   private items: NodeList
   private html: string = ''
@@ -7,10 +7,10 @@ export default class AutoLink {
   private piece: string | HTMLAnchorElement = ''
 
   constructor() {
-    this.items = document.querySelectorAll('[data-autolink]')
+    this.items = document.querySelectorAll('[data-autoanchor]')
     if (!this.items.length) return
 
-    Array.from(this.items).forEach(item => this.autoLink(item as Element))
+    Array.from(this.items).forEach(item => this.autoAnchor(item as Element))
   }
 
   private getLinkedText(text: string) {
@@ -21,7 +21,7 @@ export default class AutoLink {
     return a
   }
 
-  private autoLink(item: Element) {
+  private autoAnchor(item: Element) {
     this.html = item.innerHTML
     if (!this.html) return
     item.innerHTML = ''

@@ -1,24 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var AutoLink = /** @class */ (function () {
-    function AutoLink() {
+var AutoAnchor = /** @class */ (function () {
+    function AutoAnchor() {
         var _this = this;
         this.html = '';
         this.match = null;
         this.piece = '';
-        this.items = document.querySelectorAll('[data-autolink]');
+        this.items = document.querySelectorAll('[data-autoanchor]');
         if (!this.items.length)
             return;
-        Array.from(this.items).forEach(function (item) { return _this.autoLink(item); });
+        Array.from(this.items).forEach(function (item) { return _this.autoAnchor(item); });
     }
-    AutoLink.prototype.getLinkedText = function (text) {
+    AutoAnchor.prototype.getLinkedText = function (text) {
         var a = document.createElement('a');
         a.href = text;
         a.target = '_blank';
         a.textContent = text;
         return a;
     };
-    AutoLink.prototype.autoLink = function (item) {
+    AutoAnchor.prototype.autoAnchor = function (item) {
         this.html = item.innerHTML;
         if (!this.html)
             return;
@@ -38,6 +38,6 @@ var AutoLink = /** @class */ (function () {
             this.html = this.html.slice(this.index);
         }
     };
-    return AutoLink;
+    return AutoAnchor;
 }());
-exports.default = AutoLink;
+exports.default = AutoAnchor;

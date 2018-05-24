@@ -1,4 +1,4 @@
-export default class AutoLink {
+export default class AutoAnchor {
     private items;
     private html;
     private match;
@@ -6,5 +6,5 @@ export default class AutoLink {
     private piece;
     constructor();
     private getLinkedText(text);
-    private autoLink(item);
+    private autoAnchor(item);
 }

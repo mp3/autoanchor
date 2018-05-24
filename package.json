@@ -1,5 +1,5 @@
 {
-  "name": "autolink",
+  "name": "autoanchor",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mp3/autolink.git"
+    "url": "git+https://github.com/mp3/autoanchor.git"
   },
   "author": "Takehiko Itabashi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mp3/autolink/issues"
+    "url": "https://github.com/mp3/autoanchor/issues"
   },
-  "homepage": "https://github.com/mp3/autolink#readme",
+  "homepage": "https://github.com/mp3/autoanchor#readme",
   "devDependencies": {
     "typescript": "^2.8.3"
   }
