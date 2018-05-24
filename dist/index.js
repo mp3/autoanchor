@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var AutoLink = /** @class */ (function () {
     function AutoLink() {
         var _this = this;
-        this.html = null;
+        this.html = '';
         this.match = null;
         this.piece = '';
         this.items = document.querySelectorAll('[data-autolink]');
@@ -19,10 +19,10 @@ var AutoLink = /** @class */ (function () {
         return a;
     };
     AutoLink.prototype.autoLink = function (item) {
-        this.html = item.textContent;
+        this.html = item.innerHTML;
         if (!this.html)
             return;
-        item.textContent = '';
+        item.innerHTML = '';
         while (this.html) {
             this.match = this.html.match(/(https?:\/\/(([\w\-_\.]+)\.([a-z]+))([\/\?#][^\s,,(){}<>"”’]*)?)/i);
             this.index = this.match ? this.match.index : this.html.length;
@@ -30,11 +30,13 @@ var AutoLink = /** @class */ (function () {
             if (!this.piece && this.match) {
                 this.index = this.match[1].length;
                 this.piece = this.getLinkedText(this.match[1]);
+                item.appendChild(this.piece);
             }
-            item.textContent += this.piece;
+            else {
+                item.innerHTML += this.piece;
+            }
             this.html = this.html.slice(this.index);
         }
-        this.html = '';
     };
     return AutoLink;
 }());
