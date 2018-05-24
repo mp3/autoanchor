@@ -33,8 +33,10 @@ export default class AutoLink {
       if (!this.piece && this.match) {
           this.index = this.match[1].length
           this.piece = this.getLinkedText(this.match[1])
+          item.appendChild(this.piece)
+      } else {
+        item.innerHTML += this.piece
       }
-      item.innerHTML += this.piece
       this.html = this.html.slice(this.index)
     }
   }
