@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/autoanchor.svg)](https://badge.fury.io/js/autoanchor)
+
 ## Installation
 
 ```
